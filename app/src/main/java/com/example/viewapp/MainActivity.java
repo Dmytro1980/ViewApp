@@ -1,16 +1,20 @@
 package com.example.viewapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button mainButton;
+
+    private TextView textView;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,26 +67,41 @@ public class MainActivity extends AppCompatActivity {
 //        );
 //
 
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
 
-        layoutParams.gravity = Gravity.CENTER;
+//        // ещё одно создание LinearLayout програмно
+//        // https://metanit.com/java/android/3.3.php
+//        LinearLayout linearLayout = new LinearLayout(this);
+//        linearLayout.setOrientation(LinearLayout.VERTICAL);
+//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+//                LinearLayout.LayoutParams.WRAP_CONTENT,
+//                LinearLayout.LayoutParams.WRAP_CONTENT
+//        );
+//
+//        layoutParams.gravity = Gravity.CENTER;
+//
+//        TextView textView1 = new TextView(this);
+//        textView1.setText("First");
+//        textView1.setTextSize(30);
+//
+//        linearLayout.addView(textView1, layoutParams);
+//
+//
+//        setContentView(linearLayout);
 
-        TextView textView1 = new TextView(this);
-        textView1.setText("First");
-        textView1.setTextSize(30);
+        // для использования разметки из activity_main.xml
+        setContentView(R.layout.activity_main);
 
-        linearLayout.addView(textView1, layoutParams);
-        
+        mainButton = findViewById(R.id.main_button);
 
-        setContentView(linearLayout);
+        textView = findViewById(R.id.textViewHello);
 
-//        // для использования разметки из activity_main.xml
-//        setContentView(R.layout.activity_main);
+        mainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainButton.setVisibility(View.INVISIBLE);
+                textView.setVisibility(View.VISIBLE);
+            }
+        });
 
     }
 }
