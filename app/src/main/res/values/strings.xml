@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">ViewApp</string>
+    <!--This is a valid comment.
+    <string name="app_name">Приложуха для Жеки</string>
+    -->
+    <string name="app_name">Учебное приложение</string>
     <string name="text">"Text in TextView"</string>
+
     <string name="textLeftTopCorner">"Верхній лівий кут"</string>
     <string name="textRightTopCorner">"Верхній правий кут"</string>
     <string name="textLeftBottomCorner">"Нижній лівий кут"</string>
     <string name="textRightBottomCorner">"Нижній правий кут"</string>
+
     <string name="textHelloEuheniy">"У С П Е Х ! ! !"</string>
-    <string name="buttonText">"Жека, Жми сюда"</string>
+    <string name="hint">"Жека, вводи сообщение..."</string>
+    <string name="sending_result">"Тебя наебунькали, нихуя не отправляется!"</string>
+
+    <string name="buttonTextHelloEuheniy">"Жека, Жми сюда"</string>
+    <string name="buttonTextSend">"Отправить"</string>
 </resources>
