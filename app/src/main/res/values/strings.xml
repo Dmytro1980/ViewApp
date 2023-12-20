@@ -16,4 +16,7 @@
 
     <string name="buttonTextHelloEuheniy">"Жека, Жми сюда"</string>
     <string name="buttonTextSend">"Отправить"</string>
+
+    <!-- Текст для кнопки в TableLayout   -->
+    <string name="buttonTextTableLayout">"Отправить"</string>
 </resources>
