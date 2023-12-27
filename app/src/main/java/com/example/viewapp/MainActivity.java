@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // ! ! ! ! !
     // GridLayout
@@ -68,8 +68,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //        gridLayout.addView(button4, layoutParams);
 
-        Button button1 = new Button(this);
+//        Button button1 = new Button(this);
+//        button1 = new Button(this);
+        Button button1 = findViewById(R.id.buttonOne);
         button1.setText("1");
+        button1.setId(Button.generateViewId());
+        button1.setOnClickListener(this);
         gridLayout.addView(button1);
 
         Button button2 = new Button(this);
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setTextSize(100);
         GridLayout.LayoutParams layoutParamsTextView = new GridLayout.LayoutParams();
         layoutParamsTextView.columnSpec = GridLayout.spec(3);
-        layoutParamsTextView.rowSpec = GridLayout.spec(0,3);
+        layoutParamsTextView.rowSpec = GridLayout.spec(0, 3);
         gridLayout.addView(textView, layoutParamsTextView);
 
 
@@ -93,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         button4.setText("4");
 
         GridLayout.LayoutParams layoutParams4 = new GridLayout.LayoutParams();
-        layoutParams4.columnSpec = GridLayout.spec(0,2);
+        layoutParams4.columnSpec = GridLayout.spec(0, 2);
         layoutParams4.width = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, 180, getResources().getDisplayMetrics()
         );
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         button5.setText("5");
 
         GridLayout.LayoutParams layoutParams5 = new GridLayout.LayoutParams();
-        layoutParams5.columnSpec = GridLayout.spec(1,2);
+        layoutParams5.columnSpec = GridLayout.spec(1, 2);
         layoutParams5.width = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics()
         );
@@ -130,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         gridLayout.addView(button0);
 
 
-
         setContentView(gridLayout);
 
         button4.setOnClickListener(new View.OnClickListener() {
@@ -140,5 +143,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case ;
+        }
     }
 }
