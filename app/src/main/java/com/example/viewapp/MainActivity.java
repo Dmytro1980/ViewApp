@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button0;
 
     private TextView textView;
+    private TextView tempTextView;
 
     private List<Button> buttonList = new ArrayList<>(8);
 
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GridLayout gridLayout = new GridLayout(this);
 
         // установка количество строк
-        gridLayout.setRowCount(4);
+        gridLayout.setRowCount(5);
         // установка количество столбцов
         gridLayout.setColumnCount(3);
 //
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layoutParamsTextView.rowSpec = GridLayout.spec(0, 1);
         gridLayout.addView(textView, layoutParamsTextView);
 
+
 //        button1 = new Button(this);
 //        button1.setText("1");
 //        button1.setId(new Integer(1));
@@ -121,24 +123,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        }
 
 
-        for (int i = 0; i < 9; i++){
+        for (int i = 2; i <= 9; i++) {
             Button button = new Button(this);
-            createButton(button, i + 1);
+            createButton(button, i);
             buttonList.add(button);
+            gridLayout.addView(button);
         }
 
 //            buttonList.add(new Button(this));
 
-        // для отладки
+        // для отладки - вывод количества кнопок в buttonList
         textView.setText(Integer.toString(buttonList.size()));
 
-        int i = 2;
-        for (Button button : buttonList) {
-            createButton(button, i);
-//            button.setOnClickListener(this);
-            gridLayout.addView(button);
-            i++;
-        }
+//        int i = 2;
+//        for (Button button : buttonList) {
+//            button = createButton(button, i);
+////            button.setOnClickListener(this);
+//            gridLayout.addView(button);
+//            i++;
+//        }
+
+
 
 //        for (int i = 0; i < 9; i++) {
 //            createButton(buttonList.get(i), i + 1);
@@ -231,16 +236,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gridLayout.addView(button0, layoutParams0);
 //        gridLayout.addView(button0);
 
+        tempTextView = new TextView(this);
+        tempTextView.setText("tempTextView");
+        tempTextView.setTextSize(100);
+        GridLayout.LayoutParams layoutParamsTempTextView = new GridLayout.LayoutParams();
+        layoutParamsTempTextView.columnSpec = GridLayout.spec(0);
+        layoutParamsTempTextView.rowSpec = GridLayout.spec(4, 1);
+        gridLayout.addView(tempTextView, layoutParamsTempTextView);
 
         setContentView(gridLayout);
 
     }
 
-    public void createButton(Button button, Integer buttonNumber) {
+    public Button createButton(Button button, Integer buttonNumber) {
 //        button = new Button(this);
         button.setText(buttonNumber.toString());
         button.setId(buttonNumber);
         button.setOnClickListener(this);
+        return button;
     }
 
     @Override
