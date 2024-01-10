@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button0;
 
     private TextView textView;
-    private TextView tempTextView;
+//    private TextView tempTextView;
 
     private List<Button> buttonList = new ArrayList<>(8);
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        Button button1 = new Button(this);
 
         textView = new TextView(this);
-        textView.setText("");
+        textView.setText("0");
         textView.setTextSize(100);
         GridLayout.LayoutParams layoutParamsTextView = new GridLayout.LayoutParams();
         layoutParamsTextView.columnSpec = GridLayout.spec(0);
@@ -99,16 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gridLayout.addView(textView, layoutParamsTextView);
 
 
-//        button1 = new Button(this);
-//        button1.setText("1");
-//        button1.setId(new Integer(1));
-//        button1.setOnClickListener(this);
-
-
-        button1 = new Button(this);
-        createButton(button1, 1);
-//        button1.setOnClickListener(this);
-
+        button1 = createButton(new Button(this), 1);
 
         GridLayout.LayoutParams layoutParams1 = new GridLayout.LayoutParams();
         layoutParams1.columnSpec = GridLayout.spec(0, 1);
@@ -117,23 +108,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         );
         gridLayout.addView(button1, layoutParams1);
 
+        button2 = createButton(new Button(this), 2);
+        gridLayout.addView(button2);
 
-//        for (int i = 0; i < 8; i++) {
-//            buttonList.add(new Button(this));
-//        }
+        button3 = createButton(new Button(this), 3);
+        gridLayout.addView(button3);
 
+        button4 = createButton(new Button(this), 4);
+        gridLayout.addView(button4);
 
-        for (int i = 2; i <= 9; i++) {
-            Button button = new Button(this);
-            createButton(button, i);
-            buttonList.add(button);
-            gridLayout.addView(button);
-        }
+        button5 = createButton(new Button(this), 5);
+        gridLayout.addView(button5);
 
-//            buttonList.add(new Button(this));
+        button6 = createButton(new Button(this), 6);
+        gridLayout.addView(button6);
 
-        // для отладки - вывод количества кнопок в buttonList
-        textView.setText(Integer.toString(buttonList.size()));
+        button7 = createButton(new Button(this), 7);
+        gridLayout.addView(button7);
+
+        button8 = createButton(new Button(this), 8);
+        gridLayout.addView(button8);
+
+        button9 = createButton(new Button(this), 9);
+        gridLayout.addView(button9);
 
 //        int i = 2;
 //        for (Button button : buttonList) {
@@ -225,8 +222,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        button9.setOnClickListener(this);
 //        gridLayout.addView(button9);
 
-        button0 = new Button(this);
-        createButton(button0, 0);
+        button0 = createButton(new Button(this), 0);
+
 
         GridLayout.LayoutParams layoutParams0 = new GridLayout.LayoutParams();
         layoutParams0.columnSpec = GridLayout.spec(0, 3);
@@ -234,22 +231,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 TypedValue.COMPLEX_UNIT_DIP, 270, getResources().getDisplayMetrics()
         );
         gridLayout.addView(button0, layoutParams0);
-//        gridLayout.addView(button0);
-
-        tempTextView = new TextView(this);
-        tempTextView.setText("tempTextView");
-        tempTextView.setTextSize(100);
-        GridLayout.LayoutParams layoutParamsTempTextView = new GridLayout.LayoutParams();
-        layoutParamsTempTextView.columnSpec = GridLayout.spec(0);
-        layoutParamsTempTextView.rowSpec = GridLayout.spec(4, 1);
-        gridLayout.addView(tempTextView, layoutParamsTempTextView);
 
         setContentView(gridLayout);
-
     }
 
     public Button createButton(Button button, Integer buttonNumber) {
-//        button = new Button(this);
         button.setText(buttonNumber.toString());
         button.setId(buttonNumber);
         button.setOnClickListener(this);
